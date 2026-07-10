@@ -1,0 +1,18 @@
+services:
+  redis:
+    container_name: redis
+    image: redis:latest
+    networks:
+      - jd_network
+
+  fastapi:
+    container_name: fastapi-redis-cicd
+    build: .
+    networks:
+      - jd_network
+
+    depends_on:
+      - redis
+
+networks:
+  jd_network:
