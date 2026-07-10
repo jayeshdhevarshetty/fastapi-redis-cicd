@@ -14,7 +14,7 @@ pipeline {
             steps {
                 sh """
                 sleep 5
-                curl http://fastapi:8000/health
+                curl http://host.docker.internal:8000/health
                 """
             }
         }
