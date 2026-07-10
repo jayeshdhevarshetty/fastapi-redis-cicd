@@ -27,7 +27,7 @@ pipeline{
         stage("Remove Redis Container"){
             steps{
                 sh """
-                if docker ps -a --format '{{.Names}}' | grep -w ${R}
+                if docker ps -a --format '{{.Names}}' | grep -x "${R}"
                 then
                 docker rm -f ${R}
                 fi
