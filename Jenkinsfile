@@ -16,7 +16,7 @@ pipeline{
         stage("Remove FastAPI Container"){
             steps{
                 sh """
-                if docker ps -a --figure '{{--name}}' | grep -w ${CONTAINER}
+                if docker ps -a --format '{{.Names}}' | grep -w ${CONTAINER}
                 then
                 docker rm -f ${CONTAINER}
                 fi
